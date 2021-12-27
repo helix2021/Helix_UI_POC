@@ -10,7 +10,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features="D://Helix_Workspaces//Helix_UI_Framework//src//test//resources//features//AdminTools.feature", 
-				 glue = {"stepDefinitions","ApplicationBasePage"})
+				 glue = {"stepDefinitions","ApplicationBasePage"}, tags = "")
 
 public class TestRunner{
 	

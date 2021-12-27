@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -55,9 +56,23 @@ public class ProjectAdminStepDef {
 	}
 	
 	@And("click on view or edit button")
-	public void clickOnViewEditButton()
+	public void clickOnViewEditButton() throws InterruptedException
 	{
-		
+		helixProjAdmin.cliickOnViewEditbtn();
+		Thread.sleep(3000);
 	}
-
+	
+	@And("Enter all the values for the fields on PAGE ADMIN Page")
+	public void enterValForPAfields() throws IOException
+	{
+		try {
+			helixProjAdmin.fillPageAdminDetails();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

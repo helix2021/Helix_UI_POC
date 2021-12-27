@@ -40,7 +40,7 @@ public class ConfigReader {
 		Row row = sheet.getRow(rowNum);
 		Cell cell = row.getCell(colNum);
 		System.out.println(cell);
-		cellValue = sheet.getRow(0).getCell(0).toString();
+		cellValue = sheet.getRow(rowNum).getCell(colNum).toString();
 		return cellValue;
 	}
 	

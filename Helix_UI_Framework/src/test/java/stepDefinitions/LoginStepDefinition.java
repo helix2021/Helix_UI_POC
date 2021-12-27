@@ -28,16 +28,7 @@ public class LoginStepDefinition {
 		Thread.sleep(4000);
 	}
 	
-	@Given("User is on Meeting request Tools Page")
-	public void user_on_admin_page(DataTable datatable) throws InterruptedException
-	{
-		List<Map<String, String>> credList = datatable.asMaps();
-		String username = credList.get(0).get("username");
-		String password = credList.get(0).get("password");
-		DriverFactory.getDriver().get("http://3.6.26.96:8085/Default.aspx");
-		helix_Login.doLogin(username, password);
-		Thread.sleep(5000);
-	}
+	
 	
 	@When("User gets the title of the login page")
 	public void user_gets_the_title_of_the_login_page()

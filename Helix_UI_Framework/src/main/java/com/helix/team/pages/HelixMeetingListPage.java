@@ -16,7 +16,7 @@ public class HelixMeetingListPage {
 	public HelixAdminTools clickOnAdminToolsSection()
 	{
 		driver.findElement(lnkAdminToolsSection).click();
-		return new HelixAdminTools();
+		return new HelixAdminTools(driver);
 	}
 
 }

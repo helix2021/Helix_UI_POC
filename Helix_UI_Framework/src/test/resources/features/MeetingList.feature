@@ -1,11 +1,13 @@
 #Author: Rajesh Matadh
 Feature: Helix Login Page feature
 
-Background: 
-Given User is on Meeting List Page
-|username			  |password     |
-|mcorry@mailinator.com|Test123Test!!|
+  Background:
+    Given User is on Meeting request Tools Page
+      | username              | password      |
+      | mcorry@mailinator.com | Test123Test!! |
 
-Scenario: Meeting List Page validations
-When test
-Then test
+  @MeetingList
+  Scenario: Meeting list  Page label
+    Then user clicks on Request meeting tab
+    Then Validate meeting list label on the page
+

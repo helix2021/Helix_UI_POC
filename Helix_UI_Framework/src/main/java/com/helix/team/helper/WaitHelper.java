@@ -9,10 +9,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class WaitHelper {
 
     private int timeOutInSeconds = 10;
-
     private WebDriver driver;
 
-    public void waitForElement(By element) {
+    public void waitForElement(WebDriver driver, By element) {
         WebElement ele = driver.findElement(element);
         WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
         wait.until(ExpectedConditions.visibilityOf(ele));

@@ -17,15 +17,12 @@ public class WebElementHelper {
 //        this.driver=driver;
 //    }
 
-
-    public void setText(By locator, String text) {
-
+    public void setText(WebDriver driver, By locator, String text) {
         WebElement ele = driver.findElement(locator);
         ele.sendKeys(text);
     }
 
-    public void waitEnterText(By locator, String text) {
-
+    public void waitEnterText(WebDriver driver, By locator, String text) {
         WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
         WebElement ele = driver.findElement(locator);
         wait.until(ExpectedConditions.visibilityOf(ele));
@@ -33,14 +30,14 @@ public class WebElementHelper {
     }
 
 
-    public void setTextAndEnter(By locator, String text) {
+    public void setTextAndEnter(WebDriver driver, By locator, String text) {
         WebElement ele = driver.findElement(locator);
         ele.sendKeys(text);
     }
 
-    public void scrollAndEnterText(By locator, String text) {
+    public void scrollAndEnterText(WebDriver driver, By locator, String text) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView();",locator);
+        js.executeScript("arguments[0].scrollIntoView();", locator);
         WebElement ele = driver.findElement(locator);
         ele.sendKeys(text);
     }

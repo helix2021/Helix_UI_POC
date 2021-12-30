@@ -20,6 +20,13 @@ public class ElementUtils {
 		drpCountry.selectByVisibleText(valueToSelect);
 		System.out.println(valueToSelect + " This value is selected from the dropdown");
 	}
+
+	public void selectValueFromDropDown(WebDriver driver, By element, String valueToSelect)
+	{
+		Select drpCountry = new Select(driver.findElement(element));
+		drpCountry.selectByVisibleText(valueToSelect);
+		System.out.println(valueToSelect + " This value is selected from the dropdown");
+	}
 	
 	/*
 	 * 

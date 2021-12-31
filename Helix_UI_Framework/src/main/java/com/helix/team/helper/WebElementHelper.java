@@ -44,4 +44,5 @@ public class WebElementHelper {
         WebElement ele = driver.findElement(locator);
         ele.sendKeys(text);
     }
+
 }

@@ -14,6 +14,6 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 public class TestRunner{
 	
-	
+	private int testVal ;
 
 }

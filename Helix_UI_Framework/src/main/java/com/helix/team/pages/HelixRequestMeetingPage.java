@@ -95,7 +95,7 @@ public class HelixRequestMeetingPage {
     }
 
     public HelixMeetingListPage enterEventCityVal(String value) {
-        this.setText(input_event_city, value);
+        webElementHelper.setText(driver,input_event_city, value);
         return new HelixMeetingListPage(driver);
     }
 
@@ -113,8 +113,9 @@ public class HelixRequestMeetingPage {
         this.setText(input_first_choice_start_date, value);
         return new HelixMeetingListPage(driver);
     }
-   public HelixMeetingListPage enterFirstChoiceStartDatejs(String value) {
-        this.setText(input_first_choice_start_date, value);
+
+    public HelixMeetingListPage enterFirstChoiceStartDatejs(String value) {
+        webElementHelper.scrollAndEnterText(driver, input_first_choice_start_date, value);
         return new HelixMeetingListPage(driver);
     }
 
@@ -141,7 +142,6 @@ public class HelixRequestMeetingPage {
         WebElement ele = driver.findElement(element);
         WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
         wait.until(ExpectedConditions.visibilityOf(ele));
-
     }
 
     //************************************//

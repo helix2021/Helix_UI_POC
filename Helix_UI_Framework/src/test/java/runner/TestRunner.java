@@ -14,6 +14,11 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 public class TestRunner{
 	
+	private String testvariable;
+
 	private int testVal ;
 
+	//git commit 2
+
+	//git commit 3
 }

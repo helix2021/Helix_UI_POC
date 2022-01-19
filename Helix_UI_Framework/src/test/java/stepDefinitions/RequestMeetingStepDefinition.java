@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import com.helix.team.factory.DriverFactory;
 import com.helix.team.pages.HelixRequestMeetingPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
 public class RequestMeetingStepDefinition {
@@ -24,4 +25,21 @@ public class RequestMeetingStepDefinition {
     }
 
 
+    @Then("User selects speaker program")
+    public void userSelectsSpeakerProgram() throws InterruptedException {
+        Thread.sleep(1000);
+        helixRequestMeetingPage.selectProgramValueDropdown("Test Client Speaker Programs 2021");
+    }
+
+    @And("user selects event city")
+    public void userSelectsEventCity() throws InterruptedException {
+        helixRequestMeetingPage.enterEventCityVal("test");
+        Thread.sleep(3000);
+    }
+
+    @And("user selects {int}st choice start date")
+    public void userSelectsStChoiceStartDate(int arg0) throws InterruptedException {
+        helixRequestMeetingPage.enterFirstChoiceStartDate("12/15/2021");
+        Thread.sleep(3000);
+    }
 }

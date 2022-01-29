@@ -16,8 +16,11 @@ ConfigReader config = new ConfigReader();
 
 private boolean isProjAdminIsvisible = false;
 
+private By btn_budget = By.xpath("//button[text()='Budget']");
+
 private By lable_proj_admin = By.xpath("//strong[text()= 'Project Administration']");
 private By btn_view_edit = By.xpath("//input[contains(@value, 'View/Edit')]");
+private By btn_fee_clause = By.xpath("//button[text()='Fee Clauses']");
 
 //Project Admin page text boxes
 private By fld_job_code = By.xpath("//input[@placeholder='Enter Job Code']");
@@ -30,6 +33,69 @@ private By fld_Breakfast = By.xpath("//input[@ng-model='GrubHubCreditsBF']");
 private By fld_lunch = By.xpath("//input[@ng-model='GrubHubCreditsL']");
 private By fld_dinner = By.xpath("//input[@ng-model='GrubHubCreditsD']");
 private By fld_Others = By.xpath("//input[@ng-model='GrubHubCreditsOthers']");
+private By fld_chase_card_limit = By.xpath("//input[@ng-model='ChaseCardLimit']");
+
+//Budget section fields
+//Item
+private By fld_item_hono_avg_qntity = By.xpath("//td[text()='Assumes 1 honoraria']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_item_hono_avg_unit = By.xpath("//td[text()='Assumes 1 honoraria']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_item_hono_avg_Budget_Estimate = By.xpath("//th/b[text()='Budget Estimate']/following::tr[1]/td[5]");
+private By fld_item_airfare_qntity = By.xpath("//td[text()='Speaker Airfare ']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_item_airfare_unit = By.xpath("//td[text()='Speaker Airfare ']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_item_airfare_Budget_Estimate = By.xpath("//th/b[text()='Budget Estimate']/following::tr[2]/td[5]");
+private By fld_item_speaker_ground_transport_qntity = By.xpath("//td[text()='Speaker Ground']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_item_speaker_ground_transport_unit = By.xpath("//td[text()='Speaker Ground']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_item_speaker_ground_transport_Budget_Estimate = By.xpath("//th/b[text()='Budget Estimate']/following::tr[3]/td[5]");
+private By fld_item_speaker_TnE_qntity = By.xpath("//td[text()='Speaker Expenses']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_item_speaker_TnE_unit = By.xpath("//td[text()='Speaker Expenses']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_item_speaker_TnE_Budget_Estimate = By.xpath("//th/b[text()='Budget Estimate']/following::tr[4]/td[5]");
+private By fld_item_speaker_lodging_qntity = By.xpath("//td[text()='Speaker Lodging']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_item_speaker_lodging_unit = By.xpath("//td[text()='Speaker Lodging']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_item_speaker_lodging_Budget_Estimate = By.xpath("//th/b[text()='Budget Estimate']/following::tr[5]/td[5]");
+private By fld_item_ven_fd_bevarage_qntity = By.xpath("//td[text()='Food and Beverage']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_item_ven_fd_bevarage_unit = By.xpath("//td[text()='Food and Beverage']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_item_ven_fd_bevarage_Budget_Estimate = By.xpath("//th/b[text()='Budget Estimate']/following::tr[6]/td[5]");
+
+//Budget section fields
+//Item
+private By fld_fee_items_mngmnt_fee_qntity = By.xpath("//td[text()='Management Fee']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_fee_items_mngmnt_fee_unit = By.xpath("//td[text()='Management Fee']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_fee_items_mngmnt_fee_Budget_Estimate = By.xpath("//tr/th[text()='Fee Items']/following::tr[1]/td[5]");
+private By fld_fee_items_late_fee_qntity = By.xpath("//td[text()='Late Fee']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_fee_items_late_fee_unit = By.xpath("//td[text()='Late Fee']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_fee_items_late_fee_Budget_Estimate = By.xpath("//tr/th[text()='Fee Items']/following::tr[2]/td[5]");
+private By fld_fee_items_cancel_fee_qntity = By.xpath("//td[text()='Cancellation Fee']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_fee_items_cancel_fee_unit = By.xpath("//td[text()='Cancellation Fee']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_fee_items_cancel_fee_Budget_Estimate = By.xpath("//tr/th[text()='Fee Items']/following::tr[3]/td[5]");
+private By fld_fee_items_onsite_planner_qntity = By.xpath("//td[text()='Onsite Planner']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_fee_items_onsite_planner_unit = By.xpath("//td[text()='Onsite Planner']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_fee_items_onsite_planner_Budget_Estimate = By.xpath("//tr/th[text()='Fee Items']/following::tr[4]/td[5]");
+private By fld_fee_items_audio_visual_qntity = By.xpath("//td[text()='Audio Visual']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_fee_items_audio_visual_unit = By.xpath("//td[text()='Audio Visual']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_fee_items_audio_visual_Budget_Estimate = By.xpath("//tr/th[text()='Fee Items']/following::tr[5]/td[5]");
+private By fld_fee_items_virtual_host_qntity = By.xpath("//td[text()='Virtual Host']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_fee_items_virtual_host_unit = By.xpath("//td[text()='Virtual Host']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_fee_items_virtual_host_Budget_Estimate = By.xpath("//tr/th[text()='Fee Items']/following::tr[6]/td[5]");
+private By fld_fee_items_catering_fee_qntity = By.xpath("//td[text()='Catering Fee']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_fee_items_catering_fee_unit = By.xpath("//td[text()='Catering Fee']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_fee_items_catering_fee_Budget_Estimate = By.xpath("//tr/th[text()='Fee Items']/following::tr[7]/td[5]");
+private By fld_fee_items_virtual_catering_fee_qntity = By.xpath("//td[text()='Virtual Catering Fee']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_fee_items_virtual_catering_fee_unit = By.xpath("//td[text()='Virtual Catering Fee']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_fee_items_virtual_catering_fee_Budget_Estimate = By.xpath("//tr/th[text()='Fee Items']/following::tr[8]/td[5]");
+private By fld_fee_items_Honoraria_Fee_qntity = By.xpath("//td[text()='Honoraria Fee']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_fee_items_Honoraria_Fee_unit = By.xpath("//td[text()='Honoraria Fee']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_fee_items_Honoraria_Fee_Budget_Estimate = By.xpath("//tr/th[text()='Fee Items']/following::tr[9]/td[5]");
+private By fld_fee_items_mileage_qntity = By.xpath("//td[text()='Mileage']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_fee_items_mileage_unit = By.xpath("//td[text()='Mileage']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_fee_items_mileage_Budget_Estimate = By.xpath("//tr/th[text()='Fee Items']/following::tr[10]/td[5]");
+private By fld_fee_items_circuit_qntity = By.xpath("//td[text()='Circuit']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_fee_items_circuit_unit = By.xpath("//td[text()='Circuit']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_fee_items_circuit_Budget_Estimate = By.xpath("//tr/th[text()='Fee Items']/following::tr[11]/td[5]");
+private By fld_fee_items_Travel_Honoraria_qntity = By.xpath("//td[text()='Travel Honoraria']/following-sibling::td/input[@ng-model='item.Qty']");
+private By fld_fee_items_Travel_Honoraria_unit = By.xpath("//td[text()='Travel Honoraria']/following-sibling::td/input[@ng-model='item.Unit']");
+private By fld_fee_items_Travel_Honoraria_Budget_Estimate = By.xpath("//tr/th[text()='Fee Items']/following::tr[12]/td[5]");
+
+
 
 //Late submision details
 private By fld_LSFC1LessDays = By.xpath("//input[@ng-model='LSFC1LessDays']");
@@ -138,7 +204,21 @@ private By Btn_Add2_THT = By.xpath("//input[@ng-click='AddTHTCT(1)']");
 		System.out.println("View Edit button got clicked");
 	}
 	
-	public void fillPageAdminDetails() throws IOException, InterruptedException
+	public void clickOnBudgetButton() throws InterruptedException
+	{
+		utils.clickOnElement(btn_budget, driver);
+		Thread.sleep(4000);
+		System.out.println("Budget button got clicked");
+	}
+	
+	public void clickOnFeeClauseButton() throws InterruptedException
+	{
+		utils.clickOnElement(btn_fee_clause, driver);
+		Thread.sleep(4000);
+		System.out.println("Budget button got clicked");
+	}
+	
+	public void fillProgramFeeBreakDown() throws IOException, InterruptedException
 	{
 		utils.enterText(fld_job_code, driver, config.getValueFromExcel(1, 0));
 		utils.enterText(fld_sow_fee, driver, config.getValueFromExcel(1, 1));
@@ -150,7 +230,70 @@ private By Btn_Add2_THT = By.xpath("//input[@ng-click='AddTHTCT(1)']");
 		utils.enterText(fld_lunch, driver, config.getValueFromExcel(1, 7));
 		utils.enterText(fld_dinner, driver, config.getValueFromExcel(1, 8));
 		utils.enterText(fld_Others, driver, config.getValueFromExcel(1, 9));
+		utils.enterText(fld_chase_card_limit,driver, config.getValueFromExcel(1, 10));
+		System.out.println("Entered tha Program Fee Values");
+	}
+	
+	public void fillFeeClause() throws IOException, InterruptedException
+	{
+		utils.enterText(fld_job_code, driver, config.getValueFromExcel(1, 0));
+		utils.enterText(fld_sow_fee, driver, config.getValueFromExcel(1, 1));
+		utils.enterText(fld_speaker_Bureau1, driver, config.getValueFromExcel(1, 2));
+		utils.enterText(fld_speaker_Bureau2, driver, config.getValueFromExcel(1, 3));
+		utils.enterText(fld_Account_Service1, driver, config.getValueFromExcel(1, 4));
+		utils.enterText(fld_Account_Service2, driver, config.getValueFromExcel(1, 5));
+		utils.enterText(fld_Breakfast, driver, config.getValueFromExcel(1, 6));
+		utils.enterText(fld_lunch, driver, config.getValueFromExcel(1, 7));
+		utils.enterText(fld_dinner, driver, config.getValueFromExcel(1, 8));
+		utils.enterText(fld_Others, driver, config.getValueFromExcel(1, 9));
+		utils.enterText(fld_chase_card_limit,driver, config.getValueFromExcel(1, 10));
+		System.out.println("Entered tha Program Fee Values");
+	}
+	
+	public void fillBudgetDetails() throws IOException, InterruptedException
+	{
+		//Budget section fields
+		//Item
+		utils.enterText(fld_item_hono_avg_qntity, driver, config.getValueFromExcel(1, 11));
+		utils.enterText(fld_item_hono_avg_unit, driver, config.getValueFromExcel(1, 12));
+		utils.enterText(fld_item_airfare_qntity, driver, config.getValueFromExcel(1, 13));
+		utils.enterText(fld_item_airfare_unit, driver, config.getValueFromExcel(1, 14));
+		utils.enterText(fld_item_speaker_ground_transport_qntity, driver, config.getValueFromExcel(1, 15));
+		utils.enterText(fld_item_speaker_ground_transport_unit, driver, config.getValueFromExcel(1, 16));
+		utils.enterText(fld_item_speaker_TnE_qntity, driver, config.getValueFromExcel(1, 17));
+		utils.enterText(fld_item_speaker_TnE_unit, driver, config.getValueFromExcel(1, 18));
+		utils.enterText(fld_item_speaker_lodging_qntity, driver, config.getValueFromExcel(1, 19));
+		utils.enterText(fld_item_speaker_lodging_unit, driver, config.getValueFromExcel(1, 20));
+		utils.enterText(fld_item_ven_fd_bevarage_qntity, driver, config.getValueFromExcel(1, 21));
+		utils.enterText(fld_item_ven_fd_bevarage_unit, driver, config.getValueFromExcel(1, 22));
+
+		//Budget section fields
+		//Item
+		utils.enterText(fld_fee_items_mngmnt_fee_qntity, driver, config.getValueFromExcel(1, 23));
+		utils.enterText(fld_fee_items_mngmnt_fee_unit, driver, config.getValueFromExcel(1, 24));
+		utils.enterText(fld_fee_items_late_fee_qntity, driver, config.getValueFromExcel(1, 25));
+		utils.enterText(fld_fee_items_late_fee_unit, driver, config.getValueFromExcel(1, 26));
+		utils.enterText(fld_fee_items_cancel_fee_qntity, driver, config.getValueFromExcel(1, 27));
+		utils.enterText(fld_fee_items_cancel_fee_unit, driver, config.getValueFromExcel(1, 28));
+		utils.enterText(fld_fee_items_onsite_planner_qntity, driver, config.getValueFromExcel(1, 29));
+		utils.enterText(fld_fee_items_onsite_planner_unit, driver, config.getValueFromExcel(1, 30));
+		utils.enterText(fld_fee_items_audio_visual_qntity, driver, config.getValueFromExcel(1, 31));
+		utils.enterText(fld_fee_items_audio_visual_unit, driver, config.getValueFromExcel(1, 32));
+		utils.enterText(fld_fee_items_virtual_host_qntity, driver, config.getValueFromExcel(1, 33));
+		utils.enterText(fld_fee_items_virtual_host_unit, driver, config.getValueFromExcel(1, 34));
+		utils.enterText(fld_fee_items_catering_fee_qntity, driver, config.getValueFromExcel(1, 35));
+		utils.enterText(fld_fee_items_catering_fee_unit, driver, config.getValueFromExcel(1, 36));
+		utils.enterText(fld_fee_items_virtual_catering_fee_qntity, driver, config.getValueFromExcel(1, 37));
+		utils.enterText(fld_fee_items_virtual_catering_fee_unit, driver, config.getValueFromExcel(1, 38));
+		utils.enterText(fld_fee_items_Honoraria_Fee_qntity, driver, config.getValueFromExcel(1, 39));
+		utils.enterText(fld_fee_items_Honoraria_Fee_unit, driver, config.getValueFromExcel(1, 40));
+		utils.enterText(fld_fee_items_mileage_qntity, driver, config.getValueFromExcel(1, 41));
+		utils.enterText(fld_fee_items_mileage_unit, driver, config.getValueFromExcel(1, 42));
+		utils.enterText(fld_fee_items_circuit_qntity, driver, config.getValueFromExcel(1, 43));
+		utils.enterText(fld_fee_items_circuit_unit, driver, config.getValueFromExcel(1, 44));
+		utils.enterText(fld_fee_items_Travel_Honoraria_qntity, driver, config.getValueFromExcel(1, 45));
+		utils.enterText(fld_fee_items_Travel_Honoraria_unit, driver, config.getValueFromExcel(1, 46));
+
 		
-		System.out.println("Entered tha values in page admin");
 	}
 }

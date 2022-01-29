@@ -43,6 +43,7 @@ public class HelixRequestMeetingPage {
     private By dropdwn_state_list = By.xpath("//select[contains(@id,'BodyContent_DropDownListState')]");
     private By input_audiences_type = By.xpath("//input[contains(@id,'TextBoxAudienceTypeOther')]");
     private By input_first_choice_start_date = By.xpath("//input[contains(@id,'selDateTime1_calStartDate_textBox')]");
+    private By welcome_message = By.xpath("//span[text()='Welcome, Merrill']");
 
     //************************end*************************************/
     //************************page methods*************************************/
@@ -51,8 +52,12 @@ public class HelixRequestMeetingPage {
         driver.findElement(lnk_AdminTool).click();
     }
 
-    public HelixRequestMeetingPage validateIsWelcomeDisplayed(String welcomeMsg) {
-
+    public HelixRequestMeetingPage validateIsWelcomeDisplayed(String welcomeMsg) throws InterruptedException {
+    	Thread.sleep(5000);
+    	if(driver.findElement(welcome_message).getText().equalsIgnoreCase("Welcome, Merrill"))
+    	{
+    		System.out.println("Passed");
+    	}
         return new HelixRequestMeetingPage(driver);
     }
     //end//

@@ -51,7 +51,9 @@ public class HelixLoginPage extends ElementUtils{
 	
 	public void enterPassword(String password) throws InterruptedException
 	{
-		driver.findElement(tbx_password_login).sendKeys(password);
+		Actions act = new Actions(driver);
+		act.click(driver.findElement(tbx_password_login));
+		act.sendKeys(password).build().perform();
 		Thread.sleep(3000);
 	}
 	

@@ -34,7 +34,7 @@ public class ProjectAdminStepDef {
 		List<Map<String, String>> credList = datatable.asMaps();
 		String username = credList.get(0).get("username");
 		String password = credList.get(0).get("password");
-		DriverFactory.getDriver().get("http://3.6.26.96:8085/Default.aspx");
+		DriverFactory.getDriver().get("http://65.1.181.50:8083/AdminTools.aspx");
 		helixLogin.doLogin(username, password);
 		Thread.sleep(5000);
 		helixAdminTools = helixmeetingListPage.clickOnAdminToolsSection();
@@ -66,7 +66,11 @@ public class ProjectAdminStepDef {
 	public void enterValForPAfields() throws IOException
 	{
 		try {
-			helixProjAdmin.fillPageAdminDetails();
+			helixProjAdmin.fillProgramFeeBreakDown();
+			helixProjAdmin.clickOnBudgetButton();
+			helixProjAdmin.fillBudgetDetails();
+			helixProjAdmin.clickOnFeeClauseButton();
+			helixProjAdmin.fillFeeClause();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

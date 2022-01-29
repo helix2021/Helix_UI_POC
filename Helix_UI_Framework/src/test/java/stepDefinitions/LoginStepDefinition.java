@@ -19,12 +19,13 @@ public class LoginStepDefinition {
 	
 	private HelixLoginPage helix_Login = new HelixLoginPage(DriverFactory.getDriver());
 	private HelixRequestMeetingPage helix_req_meeting = new HelixRequestMeetingPage(DriverFactory.getDriver());
+	private HelixRequestMeetingPage helix_meeting_list_Page = new HelixRequestMeetingPage(DriverFactory.getDriver());
 	private static String actualtitle;
 	
 	@Given("User is on Helix login page")
 	public void user_is_on_Helix_login_page() throws InterruptedException
 	{
-		DriverFactory.getDriver().get("http://3.6.26.96:8083/Default.aspx");
+		DriverFactory.getDriver().get("http://65.1.181.50:8083/Default.aspx");
 		Thread.sleep(4000);
 	}
 	
@@ -60,14 +61,13 @@ public class LoginStepDefinition {
 	@Then("I enter {string} and {string} and login")
 	public void i_enter_UN_PWD(String username, String password) throws InterruptedException
 	{
-		helix_Login.enterUN(username);
-		helix_Login.enterPassword(password);
+		helix_Login.doLogin(username, password);
 	}
 	
 	@Then("I validate the login function with {string}")
-	public void i_validate_the_login_function(String welcomeMessage)
+	public void i_validate_the_login_function(String welcomeMessage) throws InterruptedException
 	{
-		helix_req_meeting.validateIsWelcomeDisplayed(welcomeMessage);
+		helix_meeting_list_Page.validateIsWelcomeDisplayed(welcomeMessage);
 	}
 
 

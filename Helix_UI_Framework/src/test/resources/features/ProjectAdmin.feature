@@ -5,9 +5,9 @@ Given User is on project admin Tools Page
 |username			  |password     |
 |mcorry@scimedny.com|Test123Test!!|
 
-@Project_Admin_Regression @helix_Regression
-Scenario: Project Administration
-Then validate that you are now on Project admin page
+#@Project_Admin_Regression @helix_Regression
+#Scenario: Project Administration
+#Then validate that you are now on Project admin page
 
 @Project_Admin_Sanity @helix_sanity
 Scenario Outline: Project Admin flow

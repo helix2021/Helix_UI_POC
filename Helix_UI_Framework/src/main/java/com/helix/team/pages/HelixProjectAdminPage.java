@@ -118,12 +118,12 @@ private By fld_CFTC2PerKDays = By.xpath("//input[@ng-model='LSFC1Doll']");
 private By btn_CFT_Add = By.xpath("//input[@ng-click='AddCFTClause(CFTType)']");
 
 //Client Cancellation - Honoraria Fee Terms
-private By fld_CCHFC1LessDays = By.xpath("//input[@ng-model='HCFTC1LessDays']");
+private By fld_CCHFC1LessDays = By.xpath("//input[@ng-model='CFTC1LessDays']");
 private By dd_CCHFC1 = By.xpath("//input[@ng-model='HCFTC1LessDays']/following-sibling::select[@ng-model='HCFTC1DaysType']");
 private By dd_CCHFC2 = By.xpath("//input[@ng-model='HCFTC1GreaDays']/following-sibling::select[@ng-model='HCFTC1DaysType']");
-private By fld_CCHFC1GREsDays = By.xpath("//input[@ng-model='HCFTC1GreaDays']");
-private By fld_CCHFC1PerKDays = By.xpath("//input[@ng-model='LSFC1Perc']");
-private By fld_CCHFC2DollDays = By.xpath("//input[@ng-model='LSFC1Doll']");
+private By fld_CCHFC1GREsDays = By.xpath("//input[@ng-model='CFTC1GreaDays']");
+private By fld_CCHFC1PerKDays = By.xpath("//input[@ng-model='CFTC1Perc']");
+private By fld_CCHFC2DollDays = By.xpath("//input[@ng-model='CFTC1Perc']");
 private By btn_CCHF_Add = By.xpath("//input[@ng-click='AddHCFTClause()']");
 
 //Virtual Host
@@ -168,10 +168,10 @@ private By textara_Circuit = By.xpath("//textarea[@ng-model='CTC1Terms']");
 
 //Travel Honoraria Term
 private By Btn_Add1_THT = By.xpath("//input[@ng-click='AddTHT()']");
-private By Btn_GT_THT = By.xpath("//input[@ng-model='THTC1T1Miles']");
-private By Btn_AM_THT = By.xpath("//input[@ng-model='THTC1T1MilesDoll']");
-private By Btn_LS_THT = By.xpath("//input[@ng-model='THTC1T1Hours']");
-private By Btn_HRS_THT = By.xpath("//input[@ng-model='THTC1T1HoursDoll']");
+private By fld_GT_THT = By.xpath("//input[@ng-model='THTC1T1Miles']");
+private By fldAM_THT = By.xpath("//input[@ng-model='THTC1T1MilesDoll']");
+private By fld_LS_THT = By.xpath("//input[@ng-model='THTC1T1Hours']");
+private By fld_HRS_THT = By.xpath("//input[@ng-model='THTC1T1HoursDoll']");
 private By Btn_Add2_THT = By.xpath("//input[@ng-click='AddTHTCT(1)']");
 	
 	public HelixProjectAdminPage(WebDriver driver)
@@ -236,17 +236,39 @@ private By Btn_Add2_THT = By.xpath("//input[@ng-click='AddTHTCT(1)']");
 	
 	public void fillFeeClause() throws IOException, InterruptedException
 	{
-		utils.enterText(fld_job_code, driver, config.getValueFromExcel(1, 0));
-		utils.enterText(fld_sow_fee, driver, config.getValueFromExcel(1, 1));
-		utils.enterText(fld_speaker_Bureau1, driver, config.getValueFromExcel(1, 2));
-		utils.enterText(fld_speaker_Bureau2, driver, config.getValueFromExcel(1, 3));
-		utils.enterText(fld_Account_Service1, driver, config.getValueFromExcel(1, 4));
-		utils.enterText(fld_Account_Service2, driver, config.getValueFromExcel(1, 5));
-		utils.enterText(fld_Breakfast, driver, config.getValueFromExcel(1, 6));
-		utils.enterText(fld_lunch, driver, config.getValueFromExcel(1, 7));
-		utils.enterText(fld_dinner, driver, config.getValueFromExcel(1, 8));
-		utils.enterText(fld_Others, driver, config.getValueFromExcel(1, 9));
-		utils.enterText(fld_chase_card_limit,driver, config.getValueFromExcel(1, 10));
+		utils.enterText(fld_LSFC1LessDays, driver, config.getValueFromExcel(1, 47));
+		utils.enterText(fld_LSFC1GREsDays, driver, config.getValueFromExcel(1, 48));
+		utils.enterText(fld_LSFC1PerKDays, driver, config.getValueFromExcel(1, 49));
+		utils.enterText(fld_LSFC2PerKDays, driver, config.getValueFromExcel(1, 50));
+		utils.enterText(fld_CFTC1LessDays, driver, config.getValueFromExcel(1, 51));
+		utils.enterText(fld_CFTC1GREsDays, driver, config.getValueFromExcel(1, 52));
+		utils.enterText(fld_CFTC1PerKDays, driver, config.getValueFromExcel(1, 53));
+		utils.enterText(fld_CFTC2PerKDays, driver, config.getValueFromExcel(1, 54));
+		utils.enterText(fld_CCHFC1LessDays, driver, config.getValueFromExcel(1, 55));
+		utils.enterText(fld_CCHFC1GREsDays, driver, config.getValueFromExcel(1, 56));
+		utils.enterText(fld_CCHFC1PerKDays, driver, config.getValueFromExcel(1, 57));
+		utils.enterText(fld_CCHFC2DollDays, driver, config.getValueFromExcel(1, 58));
+		utils.enterText(fld1_VH, driver, config.getValueFromExcel(1, 59));
+		utils.enterText(fld2_VH, driver, config.getValueFromExcel(1, 60));
+		utils.enterText(fld1_CF, driver, config.getValueFromExcel(1, 61));
+		utils.enterText(fld2_CF, driver, config.getValueFromExcel(1, 62));
+		utils.enterText(fld1_OF, driver, config.getValueFromExcel(1, 63));
+		utils.enterText(fld2_OF, driver, config.getValueFromExcel(1, 64));
+		utils.enterText(fld3_OF, driver, config.getValueFromExcel(1, 65));
+		utils.enterText(fld1_VCF, driver, config.getValueFromExcel(1, 66));
+		utils.enterText(fld2_VCF, driver, config.getValueFromExcel(1, 67));
+		utils.enterText(fld1_GSP, driver, config.getValueFromExcel(1, 68));
+		utils.enterText(fld2_LSP, driver, config.getValueFromExcel(1, 69));
+		utils.enterText(fld_SPPerKDays, driver, config.getValueFromExcel(1, 70));
+		utils.enterText(fld_SPDollDays, driver, config.getValueFromExcel(1, 71));
+		utils.enterText( fld1_ML, driver, config.getValueFromExcel(1, 72));
+		utils.enterText( fld2_ML, driver, config.getValueFromExcel(1, 73));
+		utils.enterText( fld3_ML, driver, config.getValueFromExcel(1, 74));
+		utils.enterText(textara_Circuit, driver, config.getValueFromExcel(1, 75));
+		utils.enterText(fld_GT_THT, driver, config.getValueFromExcel(1, 76));
+		utils.enterText(fldAM_THT, driver, config.getValueFromExcel(1, 77));
+		utils.enterText(fld_LS_THT, driver, config.getValueFromExcel(1, 78));
+		utils.enterText(fld_HRS_THT, driver, config.getValueFromExcel(1, 79));
 		System.out.println("Entered tha Program Fee Values");
 	}
 	

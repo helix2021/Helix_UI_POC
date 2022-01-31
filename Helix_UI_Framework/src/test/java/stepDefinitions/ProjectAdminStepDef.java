@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import java.awt.AWTException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -78,5 +79,27 @@ public class ProjectAdminStepDef {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	@And("click on submit buttom and validate the success message as {string}")
+	public void clickSubmitButtonAndValidate(String message) throws InterruptedException
+	{
+		helixProjAdmin.clickSubmitButton();
+		helixProjAdmin.validateTextMessage(message);
+	}
+	
+	@And("do not enter any value into SOW fee text field and validate the tool tip message as {string}")
+	public void checkingBlankvaltoField(String Message) throws InterruptedException, AWTException
+	{
+		helixProjAdmin.leaveBlankAndCheck(Message);
+	}
+	
+	@And("go to Budget section and fill details for first field {int} and {int}")
+	public void gotoBudgetSection(int unit,int quantity) throws InterruptedException
+
+	{
+		helixProjAdmin.clickOnFeeClauseButton();
+		helixProjAdmin.clickOnBudgetButton();
+		helixProjAdmin.fillDetailsOffieldsInBudget(unit,quantity);
 	}
 }

@@ -1,15 +1,23 @@
 package com.helix.team.pages;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 
 import com.helix.team.utils.ConfigReader;
 import com.helix.team.utils.ElementUtils;
 
 public class HelixProjectAdminPage {
-	
+
+int unit;
+int quantity;
 private WebDriver driver;
 ElementUtils utils = new ElementUtils();
 ConfigReader config = new ConfigReader();
@@ -173,6 +181,9 @@ private By fldAM_THT = By.xpath("//input[@ng-model='THTC1T1MilesDoll']");
 private By fld_LS_THT = By.xpath("//input[@ng-model='THTC1T1Hours']");
 private By fld_HRS_THT = By.xpath("//input[@ng-model='THTC1T1HoursDoll']");
 private By Btn_Add2_THT = By.xpath("//input[@ng-click='AddTHTCT(1)']");
+
+private By txt_message_submit_success = By.xpath("//label/strong[text()='Submit Success!']");
+private By btn_submit = By.xpath("//input[@value='Submit']");
 	
 	public HelixProjectAdminPage(WebDriver driver)
 	{
@@ -315,7 +326,53 @@ private By Btn_Add2_THT = By.xpath("//input[@ng-click='AddTHTCT(1)']");
 		utils.enterText(fld_fee_items_circuit_unit, driver, config.getValueFromExcel(1, 44));
 		utils.enterText(fld_fee_items_Travel_Honoraria_qntity, driver, config.getValueFromExcel(1, 45));
 		utils.enterText(fld_fee_items_Travel_Honoraria_unit, driver, config.getValueFromExcel(1, 46));
-
-		
+	}
+	
+	public void clickSubmitButton() throws InterruptedException
+	{
+		Thread.sleep(3000);
+		driver.findElement(Btn_Add1_THT).click();
+	}
+	
+	public void validateTextMessage(String message)
+	{
+		if(driver.findElement(txt_message_submit_success).getText().equalsIgnoreCase(message))
+		{
+			System.out.println("Submi is successful");
+		}
+	}
+	
+	public void leaveBlankAndCheck(String message) throws InterruptedException, AWTException
+	{
+		WebElement sowFee=driver.findElement(fld_sow_fee);
+		sowFee.clear();
+		Actions actions = new Actions(driver);
+		actions.moveToElement(sowFee).perform();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[contains(text(),'Please fill out this field']"));
+		String tooltipmessage = sowFee.getAttribute("title");
+		Thread.sleep(2000);
+		if(message.equalsIgnoreCase(tooltipmessage))
+		{
+			System.out.println("SOW field text field is empty! Please enter value");
+		}
+	}
+	
+	public void fillDetailsOffieldsInBudget(int unit, int quantity) throws InterruptedException
+	{
+		Thread.sleep(4000);
+		WebElement fquantity = driver.findElement(fld_item_hono_avg_qntity);
+		WebElement funit = driver.findElement(fld_item_hono_avg_unit);
+		fquantity.clear();
+		funit.clear();
+		fquantity.sendKeys(String.valueOf(quantity));
+		funit.sendKeys(String.valueOf(unit));
+		Thread.sleep(3000);
+		int expectedbudgetEstimate = quantity * unit;
+		int actualbudgetEstimate = Integer.parseInt(driver.findElement(fld_item_hono_avg_Budget_Estimate).getText());
+		if(expectedbudgetEstimate==actualbudgetEstimate)
+		{
+			System.out.println("Caluclation is correct");
+		}
 	}
 }
